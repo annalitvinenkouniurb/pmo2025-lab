@@ -24,6 +24,26 @@ public class TestStudents{
          * stampare a video le informazioni relative agli studenti comprensivo del voto medio
          * 
          * */
+        double grades1[] = {0.0, 0.0, 0.0, 0.0, 0.0};
+        Student s1 = new Student(1014, "Mario", "Rossi", 2013, grades1);
+
+        double grades2[] = {18.0, 20.0, 30.0, 19.0, 20.0};
+        Student s2 = new Student(1015, "Luca", "Bianchi", 2010, grades2);
+        
+        double grades3[] = {10.0, 0.0, 0.0, 0.0, 0.0};
+        Student s3 = new Student(1016, "Peppino", "Vitiello", 2012, grades3);
+        
+        double grades4[] = {7.0, 16.0, 15.0, 14.0, 13.0};
+        Student s4 = new Student(1017, "Luca", "Verdi", 2013, grades4);
+
+        s1.printStudentInfo();
+        s2.printStudentInfo();
+        s3.printStudentInfo();
+        s4.printStudentInfo();
+
+        System.out.println(s1.toString());
+        
+
     }
 
 }
