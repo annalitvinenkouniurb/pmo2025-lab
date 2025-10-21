@@ -24,8 +24,10 @@ public class AccountHolder {
         return this.userID;
     }
 
+    @Override
     public String toString() {
         // TODO: complete here
-        return "";
+        return "Account holder: " + this.name + " " + this.surname + "\nUser ID: " 
+        + this.userID;
     }
 }

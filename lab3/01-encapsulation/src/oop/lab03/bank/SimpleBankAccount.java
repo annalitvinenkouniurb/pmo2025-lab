@@ -1,8 +1,6 @@
 package oop.lab03.bank;
 
 public class SimpleBankAccount {
-
-	private int userID;
     /*
      * Aggiungere i seguenti campi:
      * - double balance: ammontare del conto
@@ -10,11 +8,20 @@ public class SimpleBankAccount {
      * - int nTransactions: numero delle operazioni effettuate
      * - static double ATM_TRANSACTION_FEE = 1: costo delle operazioni via ATM
      */
+    private static final int ATM_TRANSACTION_FEE = 1;
+	private final int userID;
+    private double balance;
+    private int nTransactions;
 
     /*
      * Creare un costruttore pubblico che prenda in ingresso un intero (ossia l'id
      * dell'utente) ed un double (ossia, l'ammontare iniziale del conto corrente).
      */
+    public SimpleBankAccount(final int id, double initialBalance){
+        this.userID = id;
+        this.balance = initialBalance;
+        this.nTransactions = 0;
+    }
 
     /*
      * Si aggiungano selettori per: 
@@ -22,6 +29,17 @@ public class SimpleBankAccount {
      * - ottenere il numero di transazioni effettuate
      * - ottenere l'ammontare corrente del conto.
      */
+    public int getUserID(){
+        return this.userID;
+    }
+
+    public int getNTransactions(){
+        return this.nTransactions;
+    }
+
+    public double getBalance(){
+        return this.balance;
+    }
 
     public void deposit(final int usrID, final double amount) {
         /*
@@ -29,6 +47,12 @@ public class SimpleBankAccount {
          * conto Nota: il deposito va a buon fine solo se l'id utente
          * corrisponde
          */
+        if(this.checkUser(usrID)){
+            this.nTransactions++;
+            this.balance += amount;
+        }else{
+            System.out.println("Wrong user id.");
+        }
     }
 
     public void withdraw(final int usrID, final double amount) {
@@ -37,6 +61,12 @@ public class SimpleBankAccount {
          * conto. Note: - Il conto puo' andare in rosso (ammontare negativo) -
          * Il prelievo va a buon fine solo se l'id utente corrisponde
          */
+        if(this.checkUser(usrID)){
+            this.nTransactions++;
+            this.balance -= amount;
+        }else{
+            System.out.println("Wrong user id.");
+        }
     }
 
     public void depositFromATM(final int usrID, final double amount) {
@@ -46,6 +76,13 @@ public class SimpleBankAccount {
          * all'uso dell'ATM (bancomat) Nota: il deposito va a buon fine solo se
          * l'id utente corrisponde
          */
+        if(this.checkUser(usrID)){
+            this.nTransactions++;
+            this.balance -= ATM_TRANSACTION_FEE;
+            this.balance += amount;
+        }else{
+            System.out.println("Wrong user id.");
+        }
     }
 
     public void withdrawFromATM(final int usrID, final double amount) {
@@ -56,6 +93,13 @@ public class SimpleBankAccount {
          * negativo) - Il prelievo va a buon fine solo se l'id utente
          * corrisponde
          */
+        if(this.checkUser(usrID)){
+            this.nTransactions++;
+            this.balance -= ATM_TRANSACTION_FEE;
+            this.balance -= amount;
+        }else{
+            System.out.println("Wrong user id.");
+        }
     }
 
     /* Utility method per controllare lo user */
