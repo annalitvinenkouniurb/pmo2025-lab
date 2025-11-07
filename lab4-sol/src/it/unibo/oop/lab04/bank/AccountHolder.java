@@ -1,12 +1,12 @@
-package oop.lab04.bank;
+package it.unibo.oop.lab04.bank;
 
 public class AccountHolder {
 
     private final String name;
     private final String surname;
-    private final Integer userID;
+    private final int userID;
 
-    public AccountHolder(final String name, final String surname, final Integer accountID) {
+    public AccountHolder(final String name, final String surname, final int accountID) {
         this.name = name;
         this.surname = surname;
         this.userID = accountID;
@@ -20,12 +20,11 @@ public class AccountHolder {
         return this.surname;
     }
 
-    public Integer getUserID() {
+    public int getUserID() {
         return this.userID;
     }
 
     public String toString() {
-        // TODO: complete here
-        return "";
+        return "AccountHolder [name=" + this.name + ", surname=" + this.surname + ", userID=" + this.userID + "]";
     }
 }
