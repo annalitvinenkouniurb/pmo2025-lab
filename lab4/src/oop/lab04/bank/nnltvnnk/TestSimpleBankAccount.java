@@ -1,4 +1,4 @@
-package oop.lab03.bank;
+package oop.lab04.bank.nnltvnnk;
 
 public final class TestSimpleBankAccount {
 
@@ -21,10 +21,10 @@ public final class TestSimpleBankAccount {
          * 7) Controllare nuovamente l'ammontare
          */
         AccountHolder ah1 = new AccountHolder("Mario", "Rossi", 1);
-        //AccountHolder ah2 = new AccountHolder("Luigi", "Bianchi", 2);
+        AccountHolder ah2 = new AccountHolder("Luigi", "Bianchi", 2);
 
         SimpleBankAccount ba1 = new SimpleBankAccount(1, 120.00);
-        //SimpleBankAccount ba2 = new SimpleBankAccount(2, 1200.00);
+        SimpleBankAccount ba2 = new SimpleBankAccount(2, 1200.00);
 
         System.out.println("Deposito: User ID 1, amount 100.00");
         ba1.deposit(1, 100.00);

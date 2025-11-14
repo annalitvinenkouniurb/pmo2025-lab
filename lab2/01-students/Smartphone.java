@@ -1,5 +1,3 @@
-package oop.lab02.constructors;
-
 public class Smartphone {
 
     public static final boolean DEF_HAS_GPS = true;

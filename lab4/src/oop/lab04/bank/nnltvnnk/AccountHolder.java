@@ -1,4 +1,4 @@
-package oop.lab03.bank;
+package oop.lab04.bank.nnltvnnk;
 
 public class AccountHolder {
 
@@ -26,6 +26,7 @@ public class AccountHolder {
 
     @Override
     public String toString() {
+        // TODO: complete here
         return "Account holder: " + this.name + " " + this.surname + "\nUser ID: " 
                 + this.userID;
     }
