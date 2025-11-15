@@ -1,14 +1,12 @@
 public class ArrayUtil{
 
     // Implementare un metodo per il calcolo del valor medio di un array
-    public double getMediumValue(double grades[]){
-        int counter = 0;
+    public double getMediumValue(int grades[]){
         double gradesSum = 0.0;
         for(double grade : grades){
             gradesSum += grade;
-            counter += 1;    
         }
-        return gradesSum / counter;
+        return gradesSum / grades.length;
     }
 
     // Implementare un metodo per ordinare un array

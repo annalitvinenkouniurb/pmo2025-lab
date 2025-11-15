@@ -5,17 +5,17 @@ public class Student {
     private final String surname;
     private final int id;
     private final int matriculationYear;
-    private double grades[];
+    private int[] grades = new int [5];
+    private double mediumGrade;
 
     // Modellare il concetto "insieme di voti" - si assuma che il numero di voti che lo studente può 
     // ricevere è 5 - e di voto medio
 
-    public Student(final int id, final String name, final String surname, final int matriculationYear, double grades[]) {
+    public Student(final int id, final String name, final String surname, final int matriculationYear) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.matriculationYear = matriculationYear;
-        this.grades = grades;
     }
 
     public String getName() {
@@ -48,29 +48,60 @@ public class Student {
         System.out.println("\n");
     }
 
-    public void setGrades(double grades[]){
-        if (grades.length == 5) {
-            System.arraycopy(grades, 0, this.grades, 0, grades.length);
+    public int addGrade(int newGrade){
+        int newGradeAdded = 0;
+        for(int i = 0; i < 5; i++){
+            if (this.grades[i] == 0 && newGradeAdded == 0){
+                this.grades[i] = newGrade;
+                newGradeAdded = newGrade;
+                break;
+            }
         }
-        else{
-            System.err.println("Wrong argument length.");
-        }
+        return newGradeAdded;
+    }
+    
+    public int addGrades(int newGrades[]){
+        int numNewGradesAdded = 0;
+        int j = 0;
+        for(int i = 0; i < 5 && j < newGrades.length; i++){
+            if (this.grades[i] == 0 && numNewGradesAdded == 0) {
+                this.grades[i] = newGrades[j];
+                j++;
+            }
+        }   
+        numNewGradesAdded = j;
+        return numNewGradesAdded;
     }
 
-    public double[] getGrades(){
-        return grades;
+    public void printGrades(){
+ /*
+ if (this.grades[0] == 0) {
+     System.err.println("No grades have been added.");
+ }
+ else{
+     for(Integer grade : this.grades){
+         System.out.print(grade + " ");
+     }
+     System.out.println();
+ }
+ 
+ */       
+    for(Integer grade : this.grades){
+         System.out.print(grade + " ");
+     }
+     System.out.println();
     }
 
 
     // Implementare un metodo per calcolare il voto medio dei voti sfruttando le classi di utility
     public double getMediumGrade(){
         ArrayUtil aU = new ArrayUtil();
-        return aU.getMediumValue(grades);
+        return aU.getMediumValue(this.grades);
     }
 
     // Implementare il toString() che contenga anche il voto medio di uno studente
     @Override
     public String toString(){
-        return "Student " + this.name + " " + this.surname + " id[" + this.id + "] Medium grade = " + this.getMediumGrade();
+        return "Student [name=" + this.name + " " + this.surname + ", id=" + this.id + ", matriculation year=" + this.getMatriculationYear();
     }
 }

@@ -24,25 +24,29 @@ public class TestStudents{
          * stampare a video le informazioni relative agli studenti comprensivo del voto medio
          * 
          * */
-        double grades1[] = {0.0, 0.0, 0.0, 0.0, 0.0};
-        Student s1 = new Student(1014, "Mario", "Rossi", 2013, grades1);
+        Student st = new Student(1014, "Mario", "Rossi", 2013);
+        System.out.println(st.toString());
 
-        double grades2[] = {18.0, 20.0, 30.0, 19.0, 20.0};
-        Student s2 = new Student(1015, "Luca", "Bianchi", 2010, grades2);
-        
-        double grades3[] = {10.0, 0.0, 0.0, 0.0, 0.0};
-        Student s3 = new Student(1016, "Peppino", "Vitiello", 2012, grades3);
-        
-        double grades4[] = {7.0, 16.0, 15.0, 14.0, 13.0};
-        Student s4 = new Student(1017, "Luca", "Verdi", 2013, grades4);
+        Student stLuca = new Student(1015, "Luca", "Paolillo", 2024);
+        System.out.println(stLuca.toString());
 
-        s1.printStudentInfo();
-        s2.printStudentInfo();
-        s3.printStudentInfo();
-        s4.printStudentInfo();
-
-        System.out.println(s1.toString());
+        stLuca.printGrades();
         
+        int LucasGrades[] = new int[]{28, 30, 27};
+        
+        stLuca.addGrade(29);
+        stLuca.printGrades();
+        
+        //stLuca.addGrade(24);
+        //stLuca.printGrades();
+        
+        System.out.println(stLuca.addGrades(LucasGrades) + " new grade(s) added.");
+        //stLuca.addGrades(LucasGrades);
+        stLuca.printGrades();
+
+        System.out.println(stLuca.addGrades(LucasGrades) + " new grade(s) added.");
+        //stLuca.addGrades(LucasGrades);
+        stLuca.printGrades();
 
     }
 
